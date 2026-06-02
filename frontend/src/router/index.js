@@ -3,6 +3,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import LoginView from '../views/auth/LoginView.vue'
 import RegisterView from '../views/auth/RegisterView.vue'
 import ProductView from '../views/products/ProductView.vue'
+import CategoryView from '../views/categories/CategoryView.vue'
 
 const routes = [
   {
@@ -20,6 +21,10 @@ const routes = [
   {
     path: '/products',
     component: ProductView,
+  },
+  {
+    path: '/categories',
+    component: CategoryView,
   },
 ]
 
