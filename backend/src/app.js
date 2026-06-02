@@ -1,11 +1,16 @@
-const express = require('express')
-const cors = require('cors')
-require('dotenv').config()
+const express = require("express");
+const cors = require("cors");
 
-const app = express()
-app.use(cors())
-app.use(express.json())
+const authRoutes = require("./routes/authRoutes");
+const productRoutes = require("./routes/productRoutes");
 
-app.get('/', (req, res) => res.json({ message: 'Coffee Shop API 🚀' }))
 
-module.exports = app
+const app = express();
+
+app.use(cors());
+app.use(express.json());
+
+app.use("/api/auth", authRoutes);
+app.use("/api/products", productRoutes);
+
+module.exports = app;
