@@ -1,7 +1,5 @@
 require("dotenv").config();
-require("./src/models/User");
-require("./src/models/Product");
-require("./src/models/Category");
+require("./src/models");
 
 const app = require("./src/app");
 const sequelize = require("./src/config/database");

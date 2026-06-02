@@ -17,13 +17,9 @@ const Product = sequelize.define("Product", {
     defaultValue: 0,
   },
 
-  image: {
-    type: DataTypes.STRING,
-  },
+  image: DataTypes.STRING,
 
-  description: {
-    type: DataTypes.TEXT,
-  },
+  description: DataTypes.TEXT,
 });
 
 module.exports = Product;

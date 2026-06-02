@@ -1,17 +1,35 @@
-const Product = require("../models/Product");
+const { Product, Category } = require("../models");
 
 exports.getProducts = async (req, res) => {
-  const products = await Product.findAll();
+  const products = await Product.findAll({ include: Category });
   res.json(products);
 };
 
 exports.getProduct = async (req, res) => {
-  const product = await Product.findByPk(req.params.id);
+  const product = await Product.findByPk(req.params.id, {
+    include: Category,
+  });
+
+  if (!product) {
+    return res.status(404).json({
+      message: "Product not found",
+    });
+  }
+
   res.json(product);
 };
 
 exports.createProduct = async (req, res) => {
-  const product = await Product.create(req.body);
+  const { name, price, stock, description, categoryId } = req.body;
+
+  const product = await Product.create({
+    name,
+    price,
+    stock,
+    description,
+    categoryId,
+  });
+
   res.status(201).json(product);
 };
 
