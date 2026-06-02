@@ -55,6 +55,8 @@
           <th>Name</th>
           <th>Price</th>
           <th>Stock</th>
+          <th>Description</th>
+          <th>Action</th>
         </tr>
       </thead>
 
@@ -66,6 +68,16 @@
           <td>{{ product.name }}</td>
           <td>${{ product.price }}</td>
           <td>{{ product.stock }}</td>
+          <td>{{ product.description }}</td>
+            <td>
+                <button class="bg-yellow-500 text-white px-2 py-1 rounded">
+                Edit
+                </button>
+    
+                <button class="bg-red-500 text-white px-2 py-1 rounded">
+                Delete
+                </button>
+            </td>
         </tr>
       </tbody>
     </table>
